@@ -1,0 +1,8 @@
+[phases.setup]
+providers = ['ruby']
+
+[phases.build]
+cmds = ['./build']
+
+[start]
+cmd = './run'
