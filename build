@@ -1,1 +1,6 @@
 #!/usr/bin/env bash
+
+cwd=$(pwd)
+cd server && bundle install
+
+cd $cwd
