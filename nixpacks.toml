@@ -1,4 +1,5 @@
 [phases.setup]
+nixPkgs = ['ruby_3_1']
 providers = ['ruby']
 
 [phases.build]
