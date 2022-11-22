@@ -1,6 +1,6 @@
 [phases.setup]
 nixPkgs = ['ruby_3_1']
-aptPkgs = ['...', 'build-essential']
+aptPkgs = ['...', 'ruby3.1-dev']
 providers = ['ruby']
 
 [phases.build]
