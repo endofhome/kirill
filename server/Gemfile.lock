@@ -3,6 +3,9 @@ GEM
   specs:
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.8)
+    puma (6.0.0)
+      nio4r (~> 2.0)
     rack (2.2.4)
     rack-protection (3.0.3)
       rack
@@ -18,6 +21,7 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  puma (= 6.0.0)
   sinatra (= 3.0.3)
 
 BUNDLED WITH
