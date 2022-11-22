@@ -23,6 +23,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
       - name: Build Kirill
         run: ./build
+
+      - name: Install the Railway CLI
+        run: npm i -g @railway/cli
+
+      # Deploy to Railway using the CLI and a secret token I've provisioned in GitHub
+      - name: Deploy to Railway.app
+        run: railway up
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
