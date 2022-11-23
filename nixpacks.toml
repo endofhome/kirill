@@ -5,4 +5,4 @@ nixPkgs = ['ruby_3_1']
 cmds = ['./build']
 
 [start]
-cmd = './run'
+cmd = './start'

@@ -6,3 +6,7 @@
 ## Testing
 Run the `build` script to run all the tests.
 ```./build```
+
+## Start
+Run the `start` script to start the server
+```./start```
