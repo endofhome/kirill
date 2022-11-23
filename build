@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 cwd=$(pwd)
-cd server && bundle config build.nio4r --with-cflags="-std=c99" && bundle install
+cd server && bundle config --local build.nio4r --with-cflags="-Wno-error=implicit-function-declaration" && bundle install
 
-cd $cwd
+cd "$cwd"
