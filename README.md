@@ -4,7 +4,7 @@
 ### Named after the 2022 Air Guitar World Champion, Kirill "Guitarantula" Blumenkrants.
 
 ## Testing
-Run the `build` script to run all the tests.
+Run the `build` script to install dependencies & run all the tests.
 ```./build```
 
 ## Start
