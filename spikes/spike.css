@@ -1,0 +1,29 @@
+button {
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 24px;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#f2f7f7;
+    background-color:#4eb5f1;
+    transition: all 0.2s;
+}
+
+h1 {
+    font-family:'Roboto',sans-serif;
+    color: rgb(31, 109, 226);
+}
+
+body {
+    background-color: rgb(217, 224, 235);
+    margin: auto;
+    width: 640px; 
+    padding: 50px;
+}
