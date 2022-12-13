@@ -1,0 +1,21 @@
+{
+  "name": "kirill",
+  "version": "1.0.0",
+  "description": "## A distributed musical instrument. ### Named after the 2022 Air Guitar World Champion, Kirill \"Guitarantula\" Blumenkrants.",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endofhome/kirill.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/endofhome/kirill/issues"
+  },
+  "homepage": "https://github.com/endofhome/kirill#readme"
+}

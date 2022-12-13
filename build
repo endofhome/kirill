@@ -1,6 +1,34 @@
 #!/usr/bin/env bash
 
+set -euo pipefail # Bash 'strict mode'
+
+tput setaf 3 # set text colour
+echo '
+      (¯`·¯`·.¸¸.··´¯)
+      ( \          / )
+       ( ) Kirill ( )
+        (/        \)
+         (.·´¯`·.¸) '
+
+tput setaf 36
+echo ''
+echo 'Installing backend dependencies.'
+echo '================================'
+tput sgr0 # reset text colour
 cwd=$(pwd)
 cd server && bundle install
-
 cd "$cwd"
+
+tput setaf 36
+echo ''
+echo 'Installing frontend dependencies.'
+echo '================================='
+tput sgr0
+npm i
+
+tput setaf 36
+echo ''
+echo 'Running frontend tests.'
+echo '======================='
+tput sgr0
+npm test
