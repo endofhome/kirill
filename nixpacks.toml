@@ -2,6 +2,7 @@
 nixPkgs = ['ruby_3_1']
 
 [phases.build]
+nixPkgs = ['nodejs-18_x']
 cmds = ['./build']
 
 [start]
