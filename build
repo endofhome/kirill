@@ -17,7 +17,16 @@ echo 'Installing backend dependencies.'
 echo '================================'
 tput sgr0 # reset text colour
 cwd=$(pwd)
+gem install rspec
 cd server && bundle install
+cd "$cwd"
+
+tput setaf 36
+echo ''
+echo 'Running backend tests.'
+echo '======================='
+tput sgr0
+cd server && rspec
 cd "$cwd"
 
 tput setaf 36

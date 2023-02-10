@@ -1,5 +1,9 @@
 require 'sinatra'
 
-get '/' do
-  'Hi from Kirill!'
+class Kirill < Sinatra::Base
+
+  get '/' do
+    'Hi from Kirill!'
+  end
+
 end
