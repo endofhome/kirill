@@ -1,6 +1,6 @@
-xtest('receives input', () => {
-    const AudioOutput = require('../src/audioOutput');
+const AudioOutput = require('../src/audioOutput');
 
+test('Audio Output On Receiving Input', () => {
     const spyOscillatorConnect = jest.fn();
     const spyOscillatorStart = jest.fn();
     const spyCreateOscillator = jest.fn(() => {
@@ -21,4 +21,5 @@ xtest('receives input', () => {
     expect(spyOscillatorConnect).toHaveBeenCalledTimes(1);
     expect(spyOscillatorConnect).toHaveBeenCalledWith(stubAudioContext.destination);
     expect(spyOscillatorStart).toHaveBeenCalledTimes(1);
+    expect(spyOscillatorStart).toHaveBeenCalledWith();
 });
