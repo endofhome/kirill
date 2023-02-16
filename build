@@ -26,7 +26,7 @@ echo ''
 echo 'Running backend tests.'
 echo '======================='
 tput sgr0
-cd server && rspec
+cd server && bundle exec rspec
 cd "$cwd"
 
 tput setaf 36
