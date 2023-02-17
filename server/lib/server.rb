@@ -6,4 +6,18 @@ class Kirill < Sinatra::Base
     'Hi from Kirill!'
   end
 
+  get '/listen' do
+    '<!DOCTYPE html>
+    <html lang="en-US">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Kirill</title>
+      </head>
+      <body>
+        <button id="power-on-button">Power On Button</button>
+      </body>
+    </html>'
+  end
+
 end
