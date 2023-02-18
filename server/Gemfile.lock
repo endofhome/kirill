@@ -59,6 +59,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  rack
   rspec
   sinatra (= 3.0.3)
   webrick
