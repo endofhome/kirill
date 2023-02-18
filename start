@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
+set -euo pipefail # Bash 'strict mode'
+
 cd server
-rackup
+bundle exec rackup -p "${PORT:-9292}"
