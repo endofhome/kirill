@@ -2,5 +2,4 @@
 
 set -euo pipefail # Bash 'strict mode'
 
-cd server
-bundle exec rackup -p "${PORT:-9292}"
+ruby server/lib/server.rb

@@ -20,4 +20,5 @@ class Kirill < Sinatra::Base
     </html>'
   end
 
+  run! if app_file == $PROGRAM_NAME
 end
