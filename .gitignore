@@ -1,3 +1,8 @@
 .idea
 node_modules
 settings.json
+
+server/lib/public/js
+.parcel-cache
+server/.cache
+server/.bundle

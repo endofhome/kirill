@@ -1,6 +1,7 @@
 require 'sinatra'
 
 class Kirill < Sinatra::Base
+  set :root, File.dirname(__FILE__)
 
   get '/' do
     'Hi from Kirill!'

@@ -13,9 +13,9 @@ describe "Listen page", type: :feature do
     expect(page).to have_title 'Kirill'
   end
 
-  it "has a button to turn on the output" do
+  it "contains audio-output component" do
     visit '/listen'
 
-    expect(page).to have_button("power-on-button")
+    expect(page).to have_css('[data-component="audio-output"]')
   end
 end
