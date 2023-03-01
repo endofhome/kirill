@@ -38,6 +38,7 @@ test('AudioOutput can be powered on', () => {
     AudioOutput(); // run the script, which sets up the event listener
     powerOnButton.click(); // click the power on button
 
+    expect(powerOnButton.getAttribute("disabled")).toBe("true");
     expect(spyCreateOscillator).toHaveBeenCalledTimes(1);
     expect(spyOscillatorConnect).toHaveBeenCalledTimes(1);
     expect(spyOscillatorConnect).toHaveBeenCalledWith(stubAudioContext.destination);

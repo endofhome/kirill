@@ -4,7 +4,10 @@ function AudioOutput() {
     audioOutputElements.forEach(audioOutput => {
         const power = new Power(new AudioContext());
         const powerOnButton = audioOutput.querySelector(".power-on-button");
-        powerOnButton.addEventListener('click', () => { power.on() });
+        powerOnButton.addEventListener('click', () => {
+            power.on();
+            powerOnButton.setAttribute("disabled", "true");
+        });
     });
 }
 
