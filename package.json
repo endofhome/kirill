@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "## A distributed musical instrument. ### Named after the 2022 Air Guitar World Champion, Kirill \"Guitarantula\" Blumenkrants.",
   "devDependencies": {
-    "jest": "^29.3.1"
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.4.3",
+    "parcel": "^2.8.3"
   },
   "scripts": {
     "test": "jest"
