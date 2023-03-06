@@ -42,3 +42,11 @@ echo 'Running frontend tests.'
 echo '======================='
 tput sgr0
 npm test
+
+tput setaf 36
+echo ''
+echo 'Build frontend JavaScript bundle.'
+echo '================================='
+tput sgr0
+cd server && npx parcel build --dist-dir lib/public/js lib/js/src/app.js
+cd "$cwd"
