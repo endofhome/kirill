@@ -2,4 +2,8 @@
 node_modules
 settings.json
 
+server/.bundle
+server/.cache
+.parcel-cache
+
 server/lib/public/js/app.js*
