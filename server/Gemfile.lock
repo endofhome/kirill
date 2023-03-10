@@ -1,3 +1,9 @@
+GIT
+  remote: git@github.com:foursquare/wait.git
+  revision: a2f7904ecd2b4be008c549d0a2d6b018cb86eff9
+  specs:
+    wait (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -59,8 +65,10 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  rack-test
   rspec
   sinatra (= 3.0.3)
+  wait!
   webrick
 
 BUNDLED WITH
