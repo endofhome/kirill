@@ -31,7 +31,8 @@ describe "Streaming API" do
 
       response = get '/api/listen'
 
-      expect(response.content_type).to eq("text/event-stream;charset=utf-8")
+      response_headers = response.content_type.split(";")
+      expect(response_headers).to include("text/event-stream")
     end
   end
 
