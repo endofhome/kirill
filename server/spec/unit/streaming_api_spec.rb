@@ -1,6 +1,5 @@
 require 'rspec'
 require 'rack/test'
-require 'wait'
 
 def app
   Kirill
@@ -37,24 +36,21 @@ describe "Streaming API" do
   end
 
   context "note-on and listen endpoints interacting" do
-    xit "correctly formed Server Sent Event is sent for each note-on request" do
+    # I observed some flakiness of this test, probably due to the concurrency involved, hence the retry attempts.
+    xit "correctly formed Server Sent Event is sent for each note-on request", :retry => 3 do
       app.streaming_mode = StreamOneEventMode.new
 
-      # send POST requests to the note-on endpoint repeatedly in the background
-      Thread.new {
-        100.times do
-          post '/api/note-on'
-          sleep 0.1
-        end
-      }
-      response = get '/api/listen'
+        # send POST requests to the note-on endpoint repeatedly in the background
+        Thread.new {
+          10.times do
+            post '/api/note-on'
+            sleep 0.1
+          end
+        }
 
-      # I observed some flakiness of this test, probably due to the concurrency involved, hence the `wait` and retry attempts.
-      wait = Wait.new(:rescue => RuntimeError, :attempts => 10)
-      wait.until do
+        response = get '/api/listen'
         # always expect frequency of 100Hz for now, to keep it simple.
         expect(response.body).to eq("event:note-on\ndata:{\"frequency\":100}\n\n")
-      end
     end
   end
 end
