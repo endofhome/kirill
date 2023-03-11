@@ -20,7 +20,7 @@ describe "Streaming API" do
 
   context "listen endpoint" do
     xit "GET request returns HTTP status 200" do
-      app.stream_status = NoEventsStream.new
+      app.streaming_mode = StreamingDisabled.new
 
       response = get '/api/listen'
 
@@ -28,7 +28,7 @@ describe "Streaming API" do
     end
 
     xit "GET request returns correct content-type header for Server Sent Events" do
-      app.stream_status = NoEventsStream.new
+      app.streaming_mode = StreamingDisabled.new
 
       response = get '/api/listen'
 
@@ -38,7 +38,7 @@ describe "Streaming API" do
 
   context "note-on and listen endpoints interacting" do
     xit "correctly formed Server Sent Event is sent for each note-on request" do
-      app.stream_status = CancellableStream.new
+      app.streaming_mode = StreamOneEvent.new
 
       # send POST requests to the note-on endpoint repeatedly in the background
       Thread.new {
@@ -59,21 +59,21 @@ describe "Streaming API" do
   end
 end
 
-class CancellableStream
+class StreamOneEvent
   def initialize
-    @cancelled = false
+    @streaming_enabled = true
   end
 
   def should_stream
-    !@cancelled
+    @streaming_enabled
   end
 
   def streamed_one_event
-    @cancelled = true
+    @streaming_enabled = false
   end
 end
 
-class NoEventsStream
+class StreamingDisabled
   def should_stream
     false
   end
