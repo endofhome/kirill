@@ -1,5 +1,14 @@
 require 'sinatra'
 
+class StreamingEnabledMode
+  def should_stream
+    true
+  end
+
+  def streamed_one_event
+  end
+end
+
 class Kirill < Sinatra::Base
 
   get '/' do
