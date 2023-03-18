@@ -1,0 +1,32 @@
+@startuml
+title Kirill Performer/Listener interaction diagram
+
+participant Performer
+participant Server
+participant Listener
+
+Listener->Server:GET /listen
+Server-->Listener:Response with HTML in the body
+Listener->Server:GET /public/app.js
+note over Listener,Server:^ This request is made automatically by the browser.\nThis is because the HTML includes a <script> tag with a src attribute of /public/app.js
+Server-->Listener:Response with JavaScript in the body.\nThe JavaScript is executed immediately on loading.
+Listener->Server:GET /api/listen
+note over Server,Listener:^ The request to /api/listen is made by the JavaScript code loaded by the listener in the previous request.\nIt results in the listener being registered with the server so they can receive new note data\nwhen it's available.
+Server-->Listener: Response with content-type header of "text/event-stream"
+note over Server,Listener: ^ A long-running connection is established with the server,\nso that notes can be streamed to the listener. See: "Server Sent Events".
+Performer->Server: GET /perform
+Server-->Performer: Response with HTML in the body
+Performer->Server: GET /public/<to-be-decided>.js
+note over Performer,Server:^ This request is made automatically by the browser.\nThis is because the HTML includes a <script> tag
+Server-->Performer: Response with JavaScript in the body\nThe JavaScript is executed immediately on loading.
+Performer->Server: Performer **presses** a button and request is sent to POST /api/note-on
+note over Server,Performer: ^ A "note on" request is sent to the server, ready to be distributed to all the listeners.\nWe're not going to specify the frequency of the note in the initial implementation,\nbut eventually it will be specified.
+Server-->Performer: Response with string of "OK" in the body\nThe body isn't important here.
+Server-->Listener: Server Sent Event
+note over Server,Listener: ^ A 'note-on' custom SSE is delivered to the listener\nIt takes following form:\n**event: note-on**\n**data: {"frequency": 100}**\n\nThe value of 'frequency' is an integer representing that frequency in hertz.\nThe JavaScript that is running on the listener's browser will then **start** playing that note.
+Performer->Server: Performer **releases** a button and request is sent to POST /api/note-off
+note over Server,Performer: ^ A "note off" request is sent to the server, ready to be distributed to all the listeners.\nWe're not going to specify the frequency of the note in the initial implementaiton,\nbut eventually it will be specified.
+Server-->Performer: Response with string of "OK" in the body\nThe body isn't important here.
+Server-->Listener: Server Sent Event
+note over Server,Listener: ^ A 'note-off' custom SSE is delivered to the listener\nIt takes the following form:\n**event: note-off**\n**data: {"frequency": 100}**\n\nThe value of 'frequency' is an integer representing that frequency in hertz.\nThe JavaScript that is running on the listener's browser will then **stop** playing that note.
+@enduml
