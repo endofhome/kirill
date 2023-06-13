@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: Deploy to production
         needs: build
-        uses: endofhome/render-deploy-action
+        uses: endofhome/render-deploy-action@v0.0.1
         with:
           service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
