@@ -32,10 +32,10 @@ jobs:
         run: ./build
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to production
-        needs: build
         uses: endofhome/render-deploy-action@v0.0.1
         with:
           service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
