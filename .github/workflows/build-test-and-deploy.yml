@@ -1,6 +1,4 @@
 name: CI/CD
-# TODO - firstly, this trys to run build and deploy in parallel, which is not what we want.
-# Secondly, the deploy doesn't work since it's looking for a published GH Action
 
 # Controls when the workflow will run
 on:
