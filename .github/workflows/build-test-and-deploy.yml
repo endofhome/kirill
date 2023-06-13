@@ -1,4 +1,6 @@
 name: CI/CD
+# TODO - firstly, this trys to run build and deploy in parallel, which is not what we want.
+# Secondly, the deploy doesn't work since it's looking for a published GH Action
 
 # Controls when the workflow will run
 on:
@@ -21,7 +23,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1.2
@@ -34,7 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to production
-        uses: endofhome/render-deploy-action@v0.0.8
+        needs: build
+        uses: endofhome/render-deploy-action
         with:
           service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
